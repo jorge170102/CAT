@@ -1,0 +1,2 @@
+$db_user = "USER";
+$db_pass = "PASSWORD";
