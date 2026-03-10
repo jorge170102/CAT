@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# Forzar HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirigir URLs antiguas de CodeIgniter
+RewriteRule ^bienvenido/?$ / [R=301,L]
+RewriteRule ^welcome/?$ / [R=301,L]
+RewriteRule ^index\.php/bienvenido/?$ / [R=301,L]
+
+# Evitar acceso a controladores viejos
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php [L]
